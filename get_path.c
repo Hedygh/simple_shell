@@ -6,7 +6,7 @@ void *get_path(char **cmd)
 	int i = 0;
 	char *find;
 
-	path = strdup(_getenv("PATH"));
+	path = _strdup(_getenv("PATH"));
 
 	if (cmd[0][0] != '/')
 	{
@@ -14,12 +14,12 @@ void *get_path(char **cmd)
 		free(path);
 		while (split_path[i])
 		{
-			find = calloc(sizeof(char), strlen(split_path[i]) + 1 + strlen(cmd[0]) + 1);
+			find = calloc(sizeof(char), _strlen(split_path[i]) + 1 + _strlen(cmd[0]) + 1);
 			if (!find)
 				break;
-			strcat(find, split_path[i]);
-			strcat(find, "/");
-			strcat(find, cmd[0]);
+			_strcat(find, split_path[i]);
+			_strcat(find, "/");
+			_strcat(find, cmd[0]);
 
 			if (access(find, F_OK) == 0)
 				break;
