@@ -31,7 +31,8 @@ char *_strndup(char *str, int n)
  */
 int _checkspace(char *str, int i)
 {
-	if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+	if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' 
+			|| str[i] == ':')
 		return (0);
 	return (1);
 }
@@ -95,7 +96,7 @@ char **strtow(char *str)
 		j += n;
 		i++;
 	}
-	tab[i] = 0;
+	tab[i] = NULL;
 	return (tab);
 }
 
