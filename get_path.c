@@ -1,4 +1,9 @@
 #include "func.h"
+/**
+ * get_path - make a suitable path to use with command
+ * @cmd: cmd to use to refer to binary
+ * Return: dont know yet
+ */
 void *get_path(char **cmd)
 {
 	char *path;
@@ -14,7 +19,8 @@ void *get_path(char **cmd)
 		free(path);
 		while (split_path[i])
 		{
-			find = calloc(sizeof(char), _strlen(split_path[i]) + 1 + _strlen(cmd[0]) + 1);
+			find = calloc(sizeof(char), _strlen(split_path[i])
+					+ 1 + _strlen(cmd[0]) + 1);
 			if (!find)
 				break;
 			_strcat(find, split_path[i]);
@@ -36,4 +42,5 @@ void *get_path(char **cmd)
 		free(path);
 		path = NULL;
 	}
+	return (NULL);
 }

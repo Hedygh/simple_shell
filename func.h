@@ -19,8 +19,14 @@ char *_strstr(char *haystack, char *needle);
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
+int _strcmp(char *s1, char *s2);
+int _putchar(char c);
 /* process */
 void execve_cmd(char **cmd);
 void *get_path(char **cmd);
 char *_getenv(char *name);
+/* built in */
+bool check_built_in(char *cmd);
+void exec_built_in(char **built_in);
+void print_env(void);
 #endif
