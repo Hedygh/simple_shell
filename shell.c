@@ -20,15 +20,20 @@ int main(void)
 	while (getline(&buff, &buf_size, stdin) > 0)
 	{
 		cmd = strtow(buff);
-		if (check_built_in(cmd[0]) == false)
+		if (cmd != NULL)
 		{
-			get_path(cmd);
-			execve_cmd(cmd);
+			if (check_built_in(cmd[0]) == false)
+			{
+				if (get_path(cmd))
+				execve_cmd(cmd);
+				else
+					perror("Command not found");
+			}
+			else
+				exec_built_in(cmd);
+			free_array(cmd);
 		}
-		else
-			exec_built_in(cmd);
 		write(1, "hedy_cherif&>", 13);
-		free_array(cmd);
 	}
 	write(1, "\n", 1);
 	free(buff);

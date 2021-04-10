@@ -21,9 +21,14 @@ char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 int _putchar(char c);
+void _puts(char *str);
+/* numbers */
+void exit_shell(char **built_in);
+int _isnumber(char *str);
+int _atoi(char *s);
 /* process */
 void execve_cmd(char **cmd);
-void *get_path(char **cmd);
+int get_path(char **cmd);
 char *_getenv(char *name);
 /* built in */
 bool check_built_in(char *cmd);

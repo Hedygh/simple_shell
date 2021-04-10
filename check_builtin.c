@@ -9,6 +9,8 @@ bool check_built_in(char *cmd)
 	char *built_in = "env";
 	char *built_in2 = "exit";
 
+	if (cmd == NULL)
+		return (false);
 	if (!_strcmp(built_in, cmd))
 		return (true);
 	if (!_strcmp(built_in2, cmd))
@@ -24,10 +26,28 @@ void exec_built_in(char **built_in)
 {
 	if (!_strcmp(built_in[0], "env") && built_in[1] == NULL)
 		print_env();
-	if (!_strcmp(built_in[0], "exit") && built_in[1] == NULL)
+	if (!_strcmp(built_in[0], "exit"))
+		exit_shell(built_in);
+}
+/**
+ * exit_shell - exit with value
+ * @built_in: command with num value
+ */
+void exit_shell(char **built_in)
+{
+	int ex = 0;
+
+	if (built_in[1] == NULL)
 		exit(EXIT_SUCCESS);
+	if (built_in[1] && built_in[2])
+		_puts("exit : too many arguments"),
+		exit(1); /* 2 or 1 ? */
+	if (_isnumber(built_in[1]))
+		ex = _atoi(built_in[1]) % 256,
+		exit(ex);
 	else
-		perror("No file found");
+		_puts("hedy_cherif: exit : numeric argument required"),
+		exit(2);
 }
 /**
  * print_env - print env as env cmd

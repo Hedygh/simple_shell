@@ -31,7 +31,7 @@ char *_strndup(char *str, int n)
  */
 int _checkspace(char *str, int i)
 {
-	if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' 
+	if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
 			|| str[i] == ':')
 		return (0);
 	return (1);

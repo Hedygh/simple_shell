@@ -4,12 +4,12 @@
  * @cmd: cmd to use to refer to binary
  * Return: dont know yet
  */
-void *get_path(char **cmd)
+int get_path(char **cmd)
 {
 	char *path;
 	char **split_path;
 	int i = 0;
-	char *find;
+	char *find = NULL;
 
 	path = _strdup(_getenv("PATH"));
 
@@ -42,5 +42,7 @@ void *get_path(char **cmd)
 		free(path);
 		path = NULL;
 	}
-	return (NULL);
+	if (find == NULL)
+		return (0);
+	return (1);
 }
