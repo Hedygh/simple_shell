@@ -3,7 +3,6 @@
   <img src="https://cdn.homesthetics.net/wp-content/uploads/2015/10/21-Sea-Shell-Projects-To-Consider-On-Your-Next-Walk-By-The-Beach-10.jpg" width="400\"/>
 
   <br>
-# GATE OF SHELL
 
 **SIMPLE SHELL**
 A shell is the top level layer of the Unix system.
@@ -31,7 +30,6 @@ hedy_cherif&>i
 ### List of useful commands
 * `cat` - prints and concatenates files to the standard output
 * `cp` -copies a file into another file
-* `grep` - helps to search for a file in a specific pattern
 * `less` - will let you go backward and forward in the files
 * `ls` - will list all files and directories in current working directory
 * `mv` - helps to move one file into another file
