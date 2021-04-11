@@ -20,6 +20,7 @@ int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
+int _strncmp(char *s1, char *s2, unsigned int n);
 int _putchar(char c);
 void _puts(char *str);
 /* numbers */

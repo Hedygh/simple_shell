@@ -21,7 +21,7 @@ void execve_cmd(char **cmd)
 	}
 	else
 	{
-		if (execve(cmd[0], cmd, NULL) == -1)/* first arg must be path to binary*/
+		if (execve(cmd[0], cmd, environ) == -1)/* first arg must be path to binary*/
 			perror("exec error");
 		exit(EXIT_FAILURE);
 	}

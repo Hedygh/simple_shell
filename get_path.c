@@ -2,18 +2,21 @@
 /**
  * get_path - make a suitable path to use with command
  * @cmd: cmd to use to refer to binary
- * Return: dont know yet
+ * Return: 1 or 0
  */
 int get_path(char **cmd)
 {
-	char *path;
-	char **split_path;
+	char *path, *find = NULL, **split_path;
 	int i = 0;
-	char *find = NULL;
 
 	path = _strdup(_getenv("PATH"));
 
-	if (cmd[0][0] != '/')
+	if (_strncmp(cmd[0], "/bin", 4) == 0)
+	{
+		free(path);
+		return (1);
+	}
+	if (cmd[0][0] != '/' && _strncmp(cmd[0], "./", 2) != 0)
 	{
 		split_path = strtow(path);
 		free(path);
@@ -38,10 +41,8 @@ int get_path(char **cmd)
 		cmd[0] = find;
 	}
 	else
-	{
-		free(path);
-		path = NULL;
-	}
+		free(path),
+			path = NULL;
 	if (find == NULL)
 		return (0);
 	return (1);
