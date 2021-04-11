@@ -1,3 +1,8 @@
+<p align="center">
+
+  <img src="https://cdn.homesthetics.net/wp-content/uploads/2015/10/21-Sea-Shell-Projects-To-Consider-On-Your-Next-Walk-By-The-Beach-10.jpg" width="400\"/>
+
+  <br>
 # GATE OF SHELL
 
 **SIMPLE SHELL**
@@ -31,3 +36,11 @@ hedy_cherif&>i
 * `ls` - will list all files and directories in current working directory
 * `mv` - helps to move one file into another file
 * `pwd` - given you the current working directory
+
+### Builtins
+There are two builtins programmed into the shell. Below is a description and use for each builtin.
+
+* `env` - The env command is a command that tells the shell program to display all of the environment variables with their values. It is a    way to access those values through the shell.
+
+* `exit` - If you wish to exit out of the shell the user can use the builtin `exit`.
+
