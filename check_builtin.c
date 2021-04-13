@@ -40,13 +40,13 @@ void exit_shell(char **built_in)
 	if (built_in[1] == NULL)
 		exit(EXIT_SUCCESS);
 	if (built_in[1] && built_in[2])
-		_puts("exit : too many arguments"),
+		_puts("exit : too many arguments\n"),
 		exit(1); /* 2 or 1 ? */
 	if (_isnumber(built_in[1]))
 		ex = _atoi(built_in[1]) % 256,
 		exit(ex);
 	else
-		_puts("hedy_cherif: exit : numeric argument required"),
+		_puts("hedy_cherif: exit : numeric argument required\n"),
 		exit(2);
 }
 /**
@@ -62,10 +62,10 @@ void print_env(void)
 		j = 0;
 		while (environ[i][j])
 		{
-			write(1, &environ[i][j], 1);
+			_putchar(environ[i][j]);
 			j++;
 		}
-		write(1, "\n", 1);
+		_putchar('\n');
 		i++;
 	}
 }

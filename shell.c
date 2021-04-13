@@ -15,7 +15,7 @@ int main(void)
 		perror("alloc error");
 		return (EXIT_FAILURE);
 	}
-	write(1, "$ ", 2);
+	_puts("$ ");
 	while (getline(&buff, &buf_size, stdin) > 0)
 	{
 		cmd = strtow(buff);
@@ -33,10 +33,10 @@ int main(void)
 			free_array(cmd);
 		}
 		if (isatty(STDIN_FILENO))
-		write(1, "$ ", 2);
+		_puts("$ ");
 	}
 	if (isatty(STDIN_FILENO))
-	write(1, "\n", 1);
+	_putchar('\n');
 	free(buff);
 	return (0);
 }
