@@ -26,7 +26,7 @@ int main(void)
 				if (get_path(cmd))
 					execve_cmd(cmd);
 				else
-					perror(cmd[0]);
+					perror("./a.out");
 			}
 			else
 				exec_built_in(cmd);
