@@ -10,14 +10,15 @@ int get_path(char **cmd)
 	int i = 0;
 
 	path = _strdup(_getenv("PATH"));
-
-	if (_strncmp(cmd[0], "/bin", 4) == 0)
+	if (_strncmp(cmd[0], "/bin", 4) == 0 || _strncmp(cmd[0], "./", 2) == 0)
 	{
 		free(path);
 		return (1);
 	}
 	if (cmd[0][0] != '/' && _strncmp(cmd[0], "./", 2) != 0)
 	{
+		if (path[0] == ':' && access(cmd[0], F_OK) == 0)
+			return (1);
 		split_path = strtow(path);
 		free(path);
 		while (split_path[i])
@@ -41,8 +42,7 @@ int get_path(char **cmd)
 		cmd[0] = find;
 	}
 	else
-		free(path),
-			path = NULL;
+		free(path), path = NULL;
 	if (find == NULL)
 		return (0);
 	return (1);

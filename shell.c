@@ -16,7 +16,7 @@ int main(void)
 		return (EXIT_FAILURE);
 	}
 
-	write(1, "hedy_cherif&>", 13);
+	write(1, "$ ", 2);
 	while (getline(&buff, &buf_size, stdin) > 0)
 	{
 		cmd = strtow(buff);
@@ -27,13 +27,13 @@ int main(void)
 				if (get_path(cmd))
 				execve_cmd(cmd);
 				else
-					perror("Command not found");
+					perror(cmd[0]);
 			}
 			else
 				exec_built_in(cmd);
 			free_array(cmd);
 		}
-		write(1, "hedy_cherif&>", 13);
+		write(1, "$ ", 2);
 	}
 	write(1, "\n", 1);
 	free(buff);
