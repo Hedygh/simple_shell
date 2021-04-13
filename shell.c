@@ -15,7 +15,6 @@ int main(void)
 		perror("alloc error");
 		return (EXIT_FAILURE);
 	}
-
 	write(1, "$ ", 2);
 	while (getline(&buff, &buf_size, stdin) > 0)
 	{
@@ -25,7 +24,7 @@ int main(void)
 			if (check_built_in(cmd[0]) == false)
 			{
 				if (get_path(cmd))
-				execve_cmd(cmd);
+					execve_cmd(cmd);
 				else
 					perror(cmd[0]);
 			}
@@ -33,8 +32,10 @@ int main(void)
 				exec_built_in(cmd);
 			free_array(cmd);
 		}
+		if (isatty(STDIN_FILENO))
 		write(1, "$ ", 2);
 	}
+	if (isatty(STDIN_FILENO))
 	write(1, "\n", 1);
 	free(buff);
 	return (0);
