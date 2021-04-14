@@ -6,7 +6,7 @@
  * @av: arg
  */
 
-void execve_cmd(char **cmd, char *av)
+void execve_cmd(char **cmd)
 {
 	pid_t pid = 0;
 	int i = 0;
@@ -24,7 +24,7 @@ void execve_cmd(char **cmd, char *av)
 	{
 		if (execve(cmd[0], cmd, environ) == -1)/* first arg must be path to binary*/
 		{
-			perror(av);
+			perror(cmd[0]);
 		}
 	}
 }

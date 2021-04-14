@@ -11,15 +11,12 @@ void ctrlC(int sign __attribute__((unused)))
 /**
  * main - main loop through getline to display prompt
  * Return: always 0
- * @ac: num of arg
- * @av: arg
  */
-int main(int ac, char **av)
+int main(void)
 {
 	char *buff = NULL;
 	char **cmd = NULL;
 	size_t buf_size = 2048;
-	(void)ac;
 
 	buff = _calloc(sizeof(char), buf_size);
 	if (!buff)
@@ -37,9 +34,9 @@ int main(int ac, char **av)
 			if (check_built_in(cmd[0]) == false)
 			{
 				if (get_path(cmd))
-					execve_cmd(cmd, av[0]);
+					execve_cmd(cmd);
 				else
-					perror(av[0]);
+					perror(cmd[0]);
 			}
 			else
 				exec_built_in(cmd);
