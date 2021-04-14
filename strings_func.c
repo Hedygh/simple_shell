@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * _strstr - find needle in the haystack string
  * @haystack: string to search into
@@ -30,12 +31,14 @@ char *_strstr(char *haystack, char *needle)
 	}
 	return (NULL);
 }
+
 /**
  * _strlen - return the lenght of string
  * @s: string to mesure
  *
  * Return: lenght value
  */
+
 int _strlen(char *s)
 {
 	int i = 0;
