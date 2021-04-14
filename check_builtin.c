@@ -1,9 +1,11 @@
 #include "shell.h"
+
 /**
  * check_built_in - check if the arg is treated as built in
  * @cmd: string to check
  * Return: true if built in else false
  */
+
 int check_built_in(char *cmd)
 {
 	char *built_in = "env";
@@ -18,10 +20,12 @@ int check_built_in(char *cmd)
 	else
 		return (0);
 }
+
 /**
  * exec_built_in - exec the appropriate built in function
  * @built_in: cmd array of strings
  */
+
 void exec_built_in(char **built_in)
 {
 	if (!_strcmp(built_in[0], "env") && built_in[1] == NULL)
@@ -29,10 +33,12 @@ void exec_built_in(char **built_in)
 	if (!_strcmp(built_in[0], "exit"))
 		exit_shell(built_in);
 }
+
 /**
  * exit_shell - exit with value
  * @built_in: command with num value
  */
+
 void exit_shell(char **built_in)
 {
 	int ex = 0;
@@ -55,9 +61,11 @@ void exit_shell(char **built_in)
 		exit(2);
 	}
 }
+
 /**
  * print_env - print env as env cmd
  */
+
 void print_env(void)
 {
 	int i = 0;
