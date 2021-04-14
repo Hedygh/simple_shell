@@ -1,5 +1,14 @@
 #include "func.h"
 /**
+ * ctrlC - handle ctC
+ * @sign: unused
+ */
+void ctrlC(int sign __attribute__((unused)))
+{
+	_puts("\n");
+	_puts("$ ");
+}
+/**
  * main - main loop through getline to display prompt
  * Return: always 0
  */
@@ -16,6 +25,7 @@ int main(void)
 		return (EXIT_FAILURE);
 	}
 	_puts("$ ");
+	signal(SIGINT, ctrlC);
 	while (getline(&buff, &buf_size, stdin) > 0)
 	{
 		cmd = strtow(buff);
