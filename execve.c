@@ -3,9 +3,10 @@
  * execve_cmd - use fork to clone process from parent to child
  * wait for the child process to exec the cmd then kill it
  * @cmd: commande to exec
+ * @av: arg
  */
 
-void execve_cmd(char **cmd)
+void execve_cmd(char **cmd, char *av)
 {
 	pid_t pid = 0;
 	int i = 0;
@@ -23,7 +24,7 @@ void execve_cmd(char **cmd)
 	{
 		if (execve(cmd[0], cmd, environ) == -1)/* first arg must be path to binary*/
 		{
-			perror(cmd[0]);
+			perror(av);
 		}
 	}
 }

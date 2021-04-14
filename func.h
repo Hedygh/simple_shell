@@ -28,7 +28,7 @@ void exit_shell(char **built_in);
 int _isnumber(char *str);
 int _atoi(char *s);
 /* process */
-void execve_cmd(char **cmd);
+void execve_cmd(char **cmd, char *av);
 int get_path(char **cmd);
 char *_getenv(char *name);
 /* built in */
