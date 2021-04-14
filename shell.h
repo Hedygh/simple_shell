@@ -34,7 +34,7 @@ void execve_cmd(char **cmd);
 int get_path(char **cmd);
 char *_getenv(char *name);
 /* built in */
-bool check_built_in(char *cmd);
+int check_built_in(char *cmd);
 void exec_built_in(char **built_in);
 void print_env(void);
 #endif

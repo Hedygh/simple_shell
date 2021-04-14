@@ -32,13 +32,15 @@ int main(void)
 		cmd = strtow(buff);
 		if (cmd != NULL)
 		{
-			if (check_built_in(cmd[0]) == false)
+			if (check_built_in(cmd[0]) == 0)
 			{
 				if (get_path(cmd))
 					execve_cmd(cmd);
 				else
 					perror(cmd[0]);
 			}
+			else if (check_built_in(cmd[0]) == 2)
+				free(buff), exec_built_in(cmd);
 			else
 				exec_built_in(cmd);
 			free_array(cmd);
