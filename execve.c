@@ -2,8 +2,7 @@
 /**
  * execve_cmd - use fork to clone process from parent to child
  * wait for the child process to exec the cmd then kill it
- * @cmd: commande to exec
- * @av: arg
+ * @cmd: cmd
  */
 
 void execve_cmd(char **cmd)
