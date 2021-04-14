@@ -42,22 +42,16 @@ void exit_shell(char **built_in)
 		free_array(built_in);
 		exit(ex);
 	}
-	if (built_in[1] && built_in[2])
-	{
-		free_array(built_in);
-		_puts("exit : too many arguments\n"),
-		exit(1); /* 2 or 1 ? */
-	}
 	if (_isnumber(built_in[1]))
 	{
-		free_array(built_in);
 		ex = _atoi(built_in[1]) % 256,
+		free_array(built_in);
 		exit(ex);
 	}
 	else
 	{
+		perror(built_in[0]);
 		free_array(built_in);
-		_puts("hedy_cherif: exit : numeric argument required\n"),
 		exit(2);
 	}
 }
