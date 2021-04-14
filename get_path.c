@@ -17,7 +17,7 @@ int get_path(char **cmd)
 	}
 	if (cmd[0][0] != '/' && _strncmp(cmd[0], "./", 2) != 0)
 	{
-		if (access(cmd[0], F_OK) != 0)
+		if (access(cmd[0], F_OK) != 0 && _strncmp(cmd[0], "pwd", 3) != 0)
 		{
 			free(path);
 			return (0);
