@@ -17,7 +17,8 @@ int get_path(char **cmd)
 	}
 	if (cmd[0][0] != '/' && _strncmp(cmd[0], "./", 2) != 0)
 	{
-		if (access(cmd[0], F_OK) != 0 && _strncmp(cmd[0], "pwd", 3) != 0)
+		if (access(cmd[0], F_OK) != 0 && _strncmp(cmd[0], "pwd", 3) != 0 &&
+				_strncmp(cmd[0], "ls", 2 != 0))
 		{
 			free(path);
 			return (0);
@@ -30,8 +31,7 @@ int get_path(char **cmd)
 					+ 1 + _strlen(cmd[0]) + 1);
 			if (!find)
 				break;
-			_strcat(find, split_path[i]);
-			_strcat(find, "/");
+			_strcat(find, split_path[i]), _strcat(find, "/");
 			_strcat(find, cmd[0]);
 			if (access(find, F_OK) == 0)
 				break;
