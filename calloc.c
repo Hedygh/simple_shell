@@ -1,4 +1,4 @@
-#include "func.h"
+#include "shell.h"
 /**
  * _memset - fills n bytes of s with byte b
  * @s: pointer to memory area

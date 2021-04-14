@@ -1,4 +1,4 @@
-#include "func.h"
+#include "shell.h"
 /**
  * _getenv - find the path inside of env array
  * @name: word path to refer to

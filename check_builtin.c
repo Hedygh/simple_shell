@@ -1,4 +1,4 @@
-#include "func.h"
+#include "shell.h"
 /**
  * check_built_in - check if the arg is treated as built in
  * @cmd: string to check

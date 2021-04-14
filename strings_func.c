@@ -1,4 +1,4 @@
-#include "func.h"
+#include "shell.h"
 /**
  * _strstr - find needle in the haystack string
  * @haystack: string to search into

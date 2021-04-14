@@ -1,4 +1,4 @@
-#include "func.h"
+#include "shell.h"
 /**
  * _strndup - duplicate string
  * @str: string to duplicate

@@ -1,4 +1,4 @@
-#include "func.h"
+#include "shell.h"
 /**
  * get_path - make a suitable path to use with command
  * @cmd: cmd to use to refer to binary

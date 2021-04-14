@@ -1,4 +1,4 @@
-#include "func.h"
+#include "shell.h"
 /**
  * execve_cmd - use fork to clone process from parent to child
  * wait for the child process to exec the cmd then kill it
