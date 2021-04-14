@@ -40,7 +40,7 @@ void exit_shell(char **built_in)
 	if (built_in[1] == NULL)
 	{
 		free_array(built_in);
-		exit(EXIT_SUCCESS);
+		exit(ex);
 	}
 	if (built_in[1] && built_in[2])
 	{
