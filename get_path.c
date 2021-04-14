@@ -17,8 +17,11 @@ int get_path(char **cmd)
 	}
 	if (cmd[0][0] != '/' && _strncmp(cmd[0], "./", 2) != 0)
 	{
-		if (path[0] == ':' && access(cmd[0], F_OK) == 0)
-			return (1);
+		if (access(cmd[0], F_OK) != 0)
+		{
+			free(path);
+			return (0);
+		}
 		split_path = strtow(path);
 		free(path);
 		while (split_path[i])
@@ -30,16 +33,13 @@ int get_path(char **cmd)
 			_strcat(find, split_path[i]);
 			_strcat(find, "/");
 			_strcat(find, cmd[0]);
-
 			if (access(find, F_OK) == 0)
 				break;
 			i++;
 			free(find);
 			find = NULL;
 		}
-		free_array(split_path);
-		free(cmd[0]);
-		cmd[0] = find;
+		free_array(split_path), free(cmd[0]), cmd[0] = find;
 	}
 	else
 		free(path), path = NULL;

@@ -13,7 +13,7 @@ void execve_cmd(char **cmd)
 	pid = fork(); /* child pid variable value is 0,*/
 	/*pid of parent value is  pid of  child (random id value) */
 	if (pid == -1)
-		perror("fork failure");
+		perror(cmd[0]);
 	else if (pid > 0) /* parent process going on */
 	{
 		waitpid(pid, &i, 0);
@@ -22,6 +22,8 @@ void execve_cmd(char **cmd)
 	else
 	{
 		if (execve(cmd[0], cmd, environ) == -1)/* first arg must be path to binary*/
+		{
 			perror(cmd[0]);
+		}
 	}
 }
