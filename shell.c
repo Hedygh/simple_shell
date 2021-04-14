@@ -32,7 +32,6 @@ int main(void)
 				exec_built_in(cmd);
 			free_array(cmd);
 		}
-		if (isatty(STDIN_FILENO))
 		_puts("$ ");
 	}
 	if (isatty(STDIN_FILENO))
