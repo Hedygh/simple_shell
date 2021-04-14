@@ -1,13 +1,16 @@
 #include "func.h"
 /**
  * main - main loop through getline to display prompt
+ * @ac: args number
+ * @av: args
  * Return: always 0
  */
-int main(void)
+int main(int ac, char **av)
 {
 	char *buff = NULL;
 	char **cmd = NULL;
 	size_t buf_size = 2048;
+	(void)ac;
 
 	buff = _calloc(sizeof(char), buf_size);
 	if (!buff)
@@ -26,7 +29,7 @@ int main(void)
 				if (get_path(cmd))
 					execve_cmd(cmd);
 				else
-					perror("./a.out");
+					perror(av[0]);
 			}
 			else
 				exec_built_in(cmd);
