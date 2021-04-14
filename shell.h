@@ -1,14 +1,16 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef SHELL_H_
+#define SHELL_H_
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <stdbool.h>
+#include <errno.h>
 extern char **environ;
 /* malloc string */
 char *_memset(char *s, char b, unsigned int n);
