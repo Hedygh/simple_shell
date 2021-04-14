@@ -10,7 +10,6 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <stdbool.h>
-#include <errno.h>
 extern char **environ;
 /* malloc string */
 char *_memset(char *s, char b, unsigned int n);
