@@ -7,6 +7,7 @@
 char *_getenv(char *name)
 {
 	int i = 0;
+	char *path = NULL;
 
 	while (*environ[i])
 	{
@@ -16,5 +17,6 @@ char *_getenv(char *name)
 		}
 		i++;
 	}
-	return (NULL);
+	path = _strdup("/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin");
+	return (path);
 }
