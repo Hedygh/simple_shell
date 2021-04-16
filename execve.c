@@ -10,8 +10,11 @@ void execve_cmd(char **cmd)
 	pid_t pid = 0;
 	int i = 0;
 
+	if (access(cmd[0], F_OK) == 0)
 	pid = fork(); /* child pid variable value is 0,*/
 	/*pid of parent value is  pid of  child (random id value) */
+	else
+		perror(cmd[0]);
 	if (pid == -1)
 		perror(cmd[0]);
 	else if (pid > 0) /* parent process going on */
