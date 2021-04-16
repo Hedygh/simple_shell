@@ -52,9 +52,7 @@ void exit_shell(char **built_in)
 	{
 		if (built_in[1][0] == '-')
 		{
-			_puts("./hsh: 1: exit: Illegal number: ");
-			_puts(built_in[1]);
-			_putchar('\n');
+			perror(built_in[0]);
 			exit(2);
 		}
 		ex = _atoi(built_in[1]) % 256,
