@@ -50,8 +50,15 @@ void exit_shell(char **built_in)
 	}
 	if (_isnumber(built_in[1]))
 	{
+		if (built_in[1][0] == '-')
+		{
+			_puts("./hsh: 1: exit: Illegal number: ");
+			_puts(built_in[1]);
+			_putchar('\n');
+			exit(2);
+		}
 		ex = _atoi(built_in[1]) % 256,
-		free_array(built_in);
+		   free_array(built_in);
 		exit(ex);
 	}
 	else
